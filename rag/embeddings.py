@@ -26,7 +26,7 @@ def create_embeddings():
 
     #save FAISS index
     faiss.write_index(index, index_file)
-    df.to_csv(mapping_file, index_file)
+    df.to_csv(mapping_file, index=False)
     print(f"✅ Saved FAISS index to {index_file}")
     print(f"✅ Saved mapping file to {mapping_file}")
 
