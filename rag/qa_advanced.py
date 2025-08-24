@@ -16,7 +16,8 @@ cache_file = ".vector_cache.pkl"
 # )
 
 LLM = ChatOllama(
-    model="mistral"
+    model="mistral",
+    temperature=0
 )
 
 def load_cache():
