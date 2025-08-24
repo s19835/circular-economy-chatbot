@@ -4,12 +4,9 @@ from sentence_transformers import SentenceTransformer
 import numpy as np
 import os
 
-#pahts
+#paths
 index_file = "../data/processed/faiss_index.bin"
 mapping_file = "../data/processed/mapping.csv"
-
-#load embbedding
-model = SentenceTransformer("all-MiniLM-L6-v2")
 
 def search(query, k=3):
     # load faiss index
@@ -17,6 +14,7 @@ def search(query, k=3):
     df = pd.read_csv(mapping_file)
 
     # encode query
+    model = SentenceTransformer("all-MiniLM-L6-v2")  # <-- moved here
     q_emb = model.encode([query])
     q_emb = np.array(q_emb, dtype="float32")
 
